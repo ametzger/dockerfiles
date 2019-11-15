@@ -10,7 +10,8 @@ In your `Dockerfile`, add the following lines:
 
 ``` dockerfile
 COPY --from=ametzger/watchman /usr/local/bin/watchman* /usr/local/bin
-COPY --from=ametzger/watchman /usr/local/var/run/watchman /usr/local/var/run/watchman
+RUN mkdir /usr/local/var/run/watchman \
+    && chown -R /
 ```
 
 Note: you may need to alter the permissions of
